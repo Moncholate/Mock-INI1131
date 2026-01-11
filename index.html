@@ -413,14 +413,35 @@
         }
 
         .criterion-options input[type="radio"] {
-            margin-right: 10px;
+            margin-right: 12px;
             margin-top: 3px;
             cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .criterion-options label div {
+            flex: 1;
+        }
+
+        .criterion-options label div strong {
+            display: block;
+            color: #003da5;
+            margin-bottom: 5px;
+        }
+
+        .criterion-options label div p {
+            margin: 0;
+            color: #333;
+            line-height: 1.5;
         }
 
         .criterion-options label:has(input:checked) {
             border-color: #28a745;
             background-color: #d4edda;
+        }
+
+        .criterion-options label:has(input:checked) strong {
+            color: #155724;
             font-weight: bold;
         }
 
@@ -491,6 +512,47 @@
             .org-person {
                 display: block;
                 margin: 10px auto;
+            }
+
+            .criterion {
+                padding: 15px 10px;
+            }
+
+            .criterion h4 {
+                font-size: 1em;
+                line-height: 1.4;
+            }
+
+            .criterion-options label {
+                padding: 10px 8px;
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+
+            .criterion-options input[type="radio"] {
+                margin-right: 8px;
+                min-width: 16px;
+            }
+
+            .rubric-evaluation {
+                padding: 15px 10px;
+            }
+
+            .feedback-item {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+
+            .audio-player audio {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            table th, table td {
+                padding: 8px 4px !important;
             }
         }
     </style>
@@ -944,23 +1006,38 @@
                     <div class="criterion-options">
                         <label>
                             <input type="radio" name="crit1" value="4">
-                            <strong>4 pts - Totalmente Logrado:</strong> 40+ palabras. Desarrolla al menos 5 ideas completas y coherentes.
+                            <div>
+                                <strong>4 pts - Totalmente Logrado</strong>
+                                <p>40+ palabras. Desarrolla al menos 5 ideas completas y coherentes.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit1" value="3.2">
-                            <strong>3.2 pts - Logrado:</strong> 30-39 palabras. Desarrolla al menos 4 ideas completas y coherentes.
+                            <div>
+                                <strong>3.2 pts - Logrado</strong>
+                                <p>30-39 palabras. Desarrolla al menos 4 ideas completas y coherentes.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit1" value="2.4">
-                            <strong>2.4 pts - Parcialmente Logrado:</strong> 20-29 palabras. Desarrolla al menos 3 ideas completas y coherentes.
+                            <div>
+                                <strong>2.4 pts - Parcialmente Logrado</strong>
+                                <p>20-29 palabras. Desarrolla al menos 3 ideas completas y coherentes.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit1" value="1.2">
-                            <strong>1.2 pts - Insuficientemente Logrado:</strong> 10-19 palabras. Desarrolla 2 ideas completas y coherentes.
+                            <div>
+                                <strong>1.2 pts - Insuficientemente Logrado</strong>
+                                <p>10-19 palabras. Desarrolla 2 ideas completas y coherentes.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit1" value="0">
-                            <strong>0 pts - No Logrado:</strong> Menos de 10 palabras o sin respuesta.
+                            <div>
+                                <strong>0 pts - No Logrado</strong>
+                                <p>Menos de 10 palabras o sin respuesta.</p>
+                            </div>
                         </label>
                     </div>
                 </div>
@@ -971,23 +1048,38 @@
                     <div class="criterion-options">
                         <label>
                             <input type="radio" name="crit2" value="3">
-                            <strong>3 pts - Totalmente Logrado:</strong> Al menos 8 palabras del vocabulario estudiado, en contextos adecuados.
+                            <div>
+                                <strong>3 pts - Totalmente Logrado</strong>
+                                <p>Al menos 8 palabras del vocabulario estudiado, en contextos adecuados.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit2" value="2.4">
-                            <strong>2.4 pts - Logrado:</strong> 6-7 palabras del vocabulario estudiado, en contextos adecuados.
+                            <div>
+                                <strong>2.4 pts - Logrado</strong>
+                                <p>6-7 palabras del vocabulario estudiado, en contextos adecuados.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit2" value="1.8">
-                            <strong>1.8 pts - Parcialmente Logrado:</strong> 5 palabras del vocabulario estudiado, en contextos adecuados.
+                            <div>
+                                <strong>1.8 pts - Parcialmente Logrado</strong>
+                                <p>5 palabras del vocabulario estudiado, en contextos adecuados.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit2" value="0.9">
-                            <strong>0.9 pts - Insuficientemente Logrado:</strong> 3-4 palabras del vocabulario estudiado, en contextos adecuados.
+                            <div>
+                                <strong>0.9 pts - Insuficientemente Logrado</strong>
+                                <p>3-4 palabras del vocabulario estudiado, en contextos adecuados.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit2" value="0">
-                            <strong>0 pts - No Logrado:</strong> Menos de 3 palabras o vocabulario inadecuado.
+                            <div>
+                                <strong>0 pts - No Logrado</strong>
+                                <p>Menos de 3 palabras o vocabulario inadecuado.</p>
+                            </div>
                         </label>
                     </div>
                 </div>
@@ -998,23 +1090,38 @@
                     <div class="criterion-options">
                         <label>
                             <input type="radio" name="crit3" value="3">
-                            <strong>3 pts - Totalmente Logrado:</strong> Sin errores gramaticales.
+                            <div>
+                                <strong>3 pts - Totalmente Logrado</strong>
+                                <p>Sin errores gramaticales.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit3" value="2.4">
-                            <strong>2.4 pts - Logrado:</strong> 2-3 errores gramaticales que no afectan la comprensión.
+                            <div>
+                                <strong>2.4 pts - Logrado</strong>
+                                <p>2-3 errores gramaticales que no afectan la comprensión.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit3" value="1.8">
-                            <strong>1.8 pts - Parcialmente Logrado:</strong> 4-5 errores, pero el texto sigue siendo comprensible.
+                            <div>
+                                <strong>1.8 pts - Parcialmente Logrado</strong>
+                                <p>4-5 errores, pero el texto sigue siendo comprensible.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit3" value="0.9">
-                            <strong>0.9 pts - Insuficientemente Logrado:</strong> Hasta 6 errores que limitan la claridad del mensaje.
+                            <div>
+                                <strong>0.9 pts - Insuficientemente Logrado</strong>
+                                <p>Hasta 6 errores que limitan la claridad del mensaje.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit3" value="0">
-                            <strong>0 pts - No Logrado:</strong> 7 o más errores que impiden la comprensión.
+                            <div>
+                                <strong>0 pts - No Logrado</strong>
+                                <p>7 o más errores que impiden la comprensión.</p>
+                            </div>
                         </label>
                     </div>
                 </div>
@@ -1025,23 +1132,38 @@
                     <div class="criterion-options">
                         <label>
                             <input type="radio" name="crit4" value="2">
-                            <strong>2 pts - Totalmente Logrado:</strong> 1-2 errores de ortografía que no afectan el mensaje.
+                            <div>
+                                <strong>2 pts - Totalmente Logrado</strong>
+                                <p>1-2 errores de ortografía que no afectan el mensaje.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit4" value="1.6">
-                            <strong>1.6 pts - Logrado:</strong> 3-4 errores de ortografía que no afectan el mensaje general.
+                            <div>
+                                <strong>1.6 pts - Logrado</strong>
+                                <p>3-4 errores de ortografía que no afectan el mensaje general.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit4" value="1.2">
-                            <strong>1.2 pts - Parcialmente Logrado:</strong> 5-6 errores que afectan parcialmente el mensaje.
+                            <div>
+                                <strong>1.2 pts - Parcialmente Logrado</strong>
+                                <p>5-6 errores que afectan parcialmente el mensaje.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit4" value="0.6">
-                            <strong>0.6 pts - Insuficientemente Logrado:</strong> 7-9 errores que afectan la idea principal.
+                            <div>
+                                <strong>0.6 pts - Insuficientemente Logrado</strong>
+                                <p>7-9 errores que afectan la idea principal.</p>
+                            </div>
                         </label>
                         <label>
                             <input type="radio" name="crit4" value="0">
-                            <strong>0 pts - No Logrado:</strong> Más de 10 errores que afectan la comprensión.
+                            <div>
+                                <strong>0 pts - No Logrado</strong>
+                                <p>Más de 10 errores que afectan la comprensión.</p>
+                            </div>
                         </label>
                     </div>
                 </div>
