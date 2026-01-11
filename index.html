@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Test - INI1131 COMEX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #003da5;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #003da5;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #003da5;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #003da5;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            background-color: #003da5;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .part-title {
+            background-color: #0051c3;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .instructions {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .instructions h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .tips {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .tips h4 {
+            color: #0c5460;
+            margin-bottom: 10px;
+        }
+
+        .tips ul {
+            margin-left: 20px;
+        }
+
+        .audio-player {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .audio-player audio {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-box {
+            background-color: #f8f9fa;
+            border: 2px solid #003da5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .form-box h4 {
+            text-align: center;
+            color: #003da5;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+
+        .form-item {
+            margin-bottom: 15px;
+        }
+
+        .form-item input {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+
+        .question {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .question p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .invoice-box {
+            background-color: #f8f9fa;
+            border: 2px solid #28a745;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+            border-radius: 5px;
+        }
+
+        .invoice-box table {
+            width: 100%;
+        }
+
+        .invoice-box td {
+            padding: 5px;
+        }
+
+        .invoice-box .label {
+            font-weight: bold;
+            width: 180px;
+        }
+
+        .cloze-text {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            line-height: 2;
+        }
+
+        .cloze-text h4 {
+            text-align: center;
+            color: #003da5;
+            margin-bottom: 15px;
+        }
+
+        .cloze-options {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .cloze-item {
+            margin-bottom: 10px;
+        }
+
+        .org-chart {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .org-chart h4 {
+            color: #003da5;
+            margin-bottom: 20px;
+        }
+
+        .org-level {
+            margin-bottom: 30px;
+        }
+
+        .org-person {
+            display: inline-block;
+            background-color: white;
+            border: 2px solid #003da5;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 200px;
+            vertical-align: top;
+        }
+
+        .org-person strong {
+            display: block;
+            color: #003da5;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .writing-area {
+            margin-top: 20px;
+        }
+
+        .writing-area textarea {
+            width: 100%;
+            min-height: 250px;
+            padding: 15px;
+            border: 2px solid #003da5;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            resize: vertical;
+        }
+
+        .word-counter {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .word-counter.warning {
+            color: #dc3545;
+        }
+
+        .word-counter.success {
+            color: #28a745;
+        }
+
+        .collapsible {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .collapsible:hover {
+            background-color: #218838;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .collapsible.active:after {
+            content: "\2212";
+        }
+
+        .answer-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .answer-content-inner {
+            padding: 20px;
+        }
+
+        .answer-content h4 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+
+        .answer-content ul {
+            margin-left: 20px;
+        }
+
+        .answer-content li {
+            margin-bottom: 8px;
+        }
+
+        .rubric {
+            background-color: #e7f3ff;
+            border-left: 4px solid #004085;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .rubric h4 {
+            color: #004085;
+            margin-bottom: 10px;
+        }
+
+        .rubric ul {
+            margin-left: 20px;
+        }
+
+        .rubric-evaluation {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #003da5;
+            margin-top: 20px;
+        }
+
+        .criterion {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #003da5;
+        }
+
+        .criterion h4 {
+            color: #003da5;
+            margin-bottom: 15px;
+        }
+
+        .criterion-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .criterion-options label {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px;
+            background-color: white;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .criterion-options label:hover {
+            border-color: #003da5;
+            background-color: #e8f4f8;
+        }
+
+        .criterion-options input[type="radio"] {
+            margin-right: 10px;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .criterion-options label:has(input:checked) {
+            border-color: #28a745;
+            background-color: #d4edda;
+            font-weight: bold;
+        }
+
+        .writing-score-display {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #d4edda;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+            color: #155724;
+        }
+
+        .student-info {
+            margin-top: 15px;
+        }
+
+        .grade-results {
+            animation: fadeIn 0.5s;
+        }
+
+        .feedback-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            border-left: 4px solid;
+        }
+
+        .feedback-correct {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .feedback-incorrect {
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .feedback-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .student-answer {
+            color: #721c24;
+            font-style: italic;
+        }
+
+        .correct-answer {
+            color: #155724;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .org-person {
+                display: block;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MOCK TEST - MIDTERM</h1>
+            <p>INI1131 - INGLÉS BÁSICO COMEX</p>
+            <p><strong>Puntaje Total: 36 puntos</strong></p>
+        </div>
+
+        <div class="info-box">
+            <h3>📋 Instrucciones Generales</h3>
+            <ul>
+                <li>Este es un examen de práctica (mock test) para prepararte para el midterm real</li>
+                <li><strong>⚠️ Los audios tienen un límite de 2 reproducciones</strong> (igual que en el examen real)</li>
+                <li>Si excedes el límite, verás una advertencia, pero podrás seguir practicando</li>
+                <li>Lee todas las instrucciones cuidadosamente antes de responder</li>
+                <li>Al finalizar, podrás calcular tu nota y ver una revisión detallada de tus respuestas</li>
+            </ul>
+        </div>
+
+        <div class="info-box" style="background-color: #fff3cd; border-left-color: #ffc107;">
+            <h3>👤 Información del Estudiante</h3>
+            <p style="margin-bottom: 10px;"><strong>Antes de comenzar, ingresa tu nombre completo:</strong></p>
+            <input type="text" id="studentName" placeholder="Ingresa tu nombre completo" style="width: 100%; padding: 12px; border: 2px solid #003da5; border-radius: 5px; font-size: 1.1em; font-weight: bold;">
+            <p style="margin-top: 10px; color: #856404; font-size: 0.9em;">💡 Este nombre se usará para enviar tu Writing al profesor y para tus resultados finales.</p>
+        </div>
+
+        <!-- LISTENING SECTION -->
+        <div class="section">
+            <div class="section-title">🎧 LISTENING COMPREHENSION (12 puntos)</div>
+
+            <!-- LISTENING PART 1 -->
+            <div class="part-title">Listening, Part 1 (8 puntos)</div>
+
+            <div class="instructions">
+                <h4>📝 INSTRUCCIONES:</h4>
+                <p>Escucharás una conversación entre dos personas. Toma notas para completar los espacios en el formulario de registro.</p>
+            </div>
+
+            <div class="tips">
+                <h4>💡 CONSEJOS:</h4>
+                <ul>
+                    <li><strong>⚠️ IMPORTANTE: En el examen real solo podrás escuchar cada audio 2 veces</strong></li>
+                    <li>Presta atención a cómo se deletrean los nombres</li>
+                    <li>Los números de teléfono se dicen dígito por dígito</li>
+                    <li>Escucha con atención la información sobre el trabajo y la compañía</li>
+                </ul>
+            </div>
+
+            <div class="audio-player">
+                <p><strong>🔊 Audio 1 - Conversación</strong></p>
+                <audio controls id="audio1" preload="metadata" playsinline>
+                    <source src="https://github.com/Moncholate/Mock-INI1131/raw/refs/heads/main/Midterm%20-%20Listening%20A.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <div style="margin-top: 10px;">
+                    <span style="font-weight: bold; color: #003da5;">Reproducciones: <span id="audio1Count">0</span> / 2</span>
+                    <span id="audio1Warning" style="display: none; color: #dc3545; font-weight: bold; margin-left: 15px;">⚠️ Has excedido el límite de reproducciones del examen real</span>
+                </div>
+            </div>
+
+            <div class="form-box">
+                <h4>WORKSHOP REGISTRATION FORM</h4>
+                
+                <div class="form-item">
+                    Attendee's first name: (1) <input type="text" id="l1_1" placeholder="Escribe aquí">
+                </div>
+                
+                <div class="form-item">
+                    Attendee's last name: (2) <input type="text" id="l1_2" placeholder="Escribe aquí">
+                </div>
+                
+                <div class="form-item">
+                    Attendee's Phone Number: (3) <input type="text" id="l1_3" placeholder="Escribe aquí">
+                </div>
+                
+                <div class="form-item">
+                    Job: He is an (4) <input type="text" id="l1_4" placeholder="Escribe aquí">. He works at (5) <input type="text" id="l1_5" placeholder="Escribe aquí"> International.
+                </div>
+                
+                <div class="form-item">
+                    Registration code: (6) <input type="text" id="l1_6" placeholder="Escribe aquí">. Show it at the (7) <input type="text" id="l1_7" placeholder="Escribe aquí"> desk.
+                </div>
+                
+                <div class="form-item">
+                    Objects needed for the workshop: a (8) <input type="text" id="l1_8" placeholder="Escribe aquí"> or a notebook.
+                </div>
+            </div>
+
+            <!-- LISTENING PART 2 -->
+            <div class="part-title">Listening, Part 2 (4 puntos)</div>
+
+            <div class="instructions">
+                <h4>📝 INSTRUCCIONES:</h4>
+                <p>Escucharás a una persona hablando. Luego selecciona la respuesta correcta.</p>
+            </div>
+
+            <div class="tips">
+                <h4>💡 CONSEJOS:</h4>
+                <ul>
+                    <li><strong>⚠️ IMPORTANTE: En el examen real solo podrás escuchar cada audio 2 veces</strong></li>
+                    <li>Lee todas las opciones antes de escuchar</li>
+                    <li>Presta atención a días de la semana, horas, lugares y nacionalidades</li>
+                    <li>Escucha con cuidado los números de las salas</li>
+                </ul>
+            </div>
+
+            <div class="audio-player">
+                <p><strong>🔊 Audio 2 - Monólogo</strong></p>
+                <audio controls id="audio2" preload="metadata" playsinline>
+                    <source src="https://github.com/Moncholate/Mock-INI1131/raw/refs/heads/main/Midterm%20-%20Listening%20B.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <div style="margin-top: 10px;">
+                    <span style="font-weight: bold; color: #003da5;">Reproducciones: <span id="audio2Count">0</span> / 2</span>
+                    <span id="audio2Warning" style="display: none; color: #dc3545; font-weight: bold; margin-left: 15px;">⚠️ Has excedido el límite de reproducciones del examen real</span>
+                </div>
+            </div>
+
+            <p><strong>Now, select the correct answer:</strong></p>
+
+            <div class="question">
+                <p>1. When are the marketing review meetings?</p>
+                <div class="options">
+                    <label><input type="radio" name="l2_1" value="a"> a. On Monday and Thursday</label>
+                    <label><input type="radio" name="l2_1" value="b"> b. On Tuesday and Thursday</label>
+                    <label><input type="radio" name="l2_1" value="c"> c. On Monday and Wednesday</label>
+                    <label><input type="radio" name="l2_1" value="d"> d. On Tuesday and Friday</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. What time is the client presentation?</p>
+                <div class="options">
+                    <label><input type="radio" name="l2_2" value="a"> a. 2:50</label>
+                    <label><input type="radio" name="l2_2" value="b"> b. 2:15</label>
+                    <label><input type="radio" name="l2_2" value="c"> c. 2:25</label>
+                    <label><input type="radio" name="l2_2" value="d"> d. 2:45</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. Where is the client presentation?</p>
+                <div class="options">
+                    <label><input type="radio" name="l2_3" value="a"> a. In conference room 208</label>
+                    <label><input type="radio" name="l2_3" value="b"> b. In conference room 308</label>
+                    <label><input type="radio" name="l2_3" value="c"> c. In conference room 108</label>
+                    <label><input type="radio" name="l2_3" value="d"> d. In conference room 408</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. What is Ms. Rodriguez's nationality?</p>
+                <div class="options">
+                    <label><input type="radio" name="l2_4" value="a"> a. Mexican</label>
+                    <label><input type="radio" name="l2_4" value="b"> b. Argentinian</label>
+                    <label><input type="radio" name="l2_4" value="c"> c. Spanish</label>
+                    <label><input type="radio" name="l2_4" value="d"> d. Colombian</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- READING SECTION -->
+        <div class="section">
+            <div class="section-title">📖 READING COMPREHENSION (12 puntos)</div>
+
+            <!-- READING PART 1 -->
+            <div class="part-title">Reading, Part 1 (6 puntos)</div>
+
+            <div class="instructions">
+                <h4>📝 INSTRUCCIONES:</h4>
+                <p>Lee el siguiente encabezado de una factura. Luego responde las preguntas.</p>
+            </div>
+
+            <div class="tips">
+                <h4>💡 CONSEJOS:</h4>
+                <ul>
+                    <li>Lee toda la factura antes de responder</li>
+                    <li>Presta atención a los nombres, direcciones y números</li>
+                    <li>Las cantidades tienen símbolos de dólares ($)</li>
+                    <li>Los números de factura se leen dígito por dígito</li>
+                </ul>
+            </div>
+
+            <div class="invoice-box">
+                <table>
+                    <tr><td colspan="2" style="text-align: right; padding-bottom: 10px;">Pharmacy supplies<br>INVOICE #742</td></tr>
+                    <tr><td class="label">BILLED TO:</td><td>TRP Medical Company</td></tr>
+                    <tr><td class="label">PAY TO:</td><td>Monica Peterson<br>582, Wilson Avenue, Boston</td></tr>
+                    <tr><td class="label">BANK:</td><td>GHK International Bank</td></tr>
+                    <tr><td class="label">ACCOUNT NAME:</td><td>Helen Foster</td></tr>
+                    <tr><td class="label">IBAN:</td><td>074-582</td></tr>
+                    <tr><td class="label">Account number:</td><td>3698-7421</td></tr>
+                    <tr><td class="label">Amount:</td><td>$64.27</td></tr>
+                </table>
+            </div>
+
+            <div class="question">
+                <p>1. What is Monica's address?</p>
+                <div class="options">
+                    <label><input type="radio" name="r1_1" value="a"> a. 528, Wilson Avenue</label>
+                    <label><input type="radio" name="r1_1" value="b"> b. 582, Wilson Avenue</label>
+                    <label><input type="radio" name="r1_1" value="c"> c. 582, Watson Avenue</label>
+                    <label><input type="radio" name="r1_1" value="d"> d. 528, Watson Avenue</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. What are the supplies?</p>
+                <div class="options">
+                    <label><input type="radio" name="r1_2" value="a"> a. Office supplies</label>
+                    <label><input type="radio" name="r1_2" value="b"> b. Pharmacy supplies</label>
+                    <label><input type="radio" name="r1_2" value="c"> c. Bank supplies</label>
+                    <label><input type="radio" name="r1_2" value="d"> d. School supplies</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. How much are they?</p>
+                <div class="options">
+                    <label><input type="radio" name="r1_3" value="a"> a. $64.72</label>
+                    <label><input type="radio" name="r1_3" value="b"> b. $46.27</label>
+                    <label><input type="radio" name="r1_3" value="c"> c. $64.27</label>
+                    <label><input type="radio" name="r1_3" value="d"> d. $46.72</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. What's the number of the invoice?</p>
+                <div class="options">
+                    <label><input type="radio" name="r1_4" value="a"> a. seven-four-two</label>
+                    <label><input type="radio" name="r1_4" value="b"> b. seven-two-four</label>
+                    <label><input type="radio" name="r1_4" value="c"> c. four-seven-two</label>
+                    <label><input type="radio" name="r1_4" value="d"> d. two-four-seven</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. What's the name of the company?</p>
+                <div class="options">
+                    <label><input type="radio" name="r1_5" value="a"> a. Wilson Avenue</label>
+                    <label><input type="radio" name="r1_5" value="b"> b. GHK International</label>
+                    <label><input type="radio" name="r1_5" value="c"> c. Monica Peterson</label>
+                    <label><input type="radio" name="r1_5" value="d"> d. TRP Medical</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>6. What's Helen's last name?</p>
+                <div class="options">
+                    <label><input type="radio" name="r1_6" value="a"> a. Peterson</label>
+                    <label><input type="radio" name="r1_6" value="b"> b. Helen</label>
+                    <label><input type="radio" name="r1_6" value="c"> c. Foster</label>
+                    <label><input type="radio" name="r1_6" value="d"> d. Wilson</label>
+                </div>
+            </div>
+
+            <!-- READING PART 2 -->
+            <div class="part-title">Reading, Part 2 (6 puntos)</div>
+
+            <div class="instructions">
+                <h4>📝 INSTRUCCIONES:</h4>
+                <p>Lee la descripción del puesto de trabajo y elige la alternativa correcta para completar el texto.</p>
+            </div>
+
+            <div class="tips">
+                <h4>💡 CONSEJOS:</h4>
+                <ul>
+                    <li>Lee todo el texto primero para entender el contexto</li>
+                    <li>Cada espacio tiene solo UNA respuesta correcta</li>
+                    <li>Piensa en el vocabulario de negocios y comercio internacional</li>
+                    <li>Las palabras deben tener sentido gramatical y lógico en el contexto</li>
+                </ul>
+            </div>
+
+            <div class="cloze-text">
+                <h4>Administrative Assistant: Job position</h4>
+                <p>
+                    As our Administrative Assistant, you need to help <strong>(1) ______</strong> in different departments with daily tasks. 
+                    You have to prepare documents, organize <strong>(2) ______</strong> with clients, and answer phone <strong>(3) ______</strong>. 
+                    You also need to manage the office <strong>(4) ______</strong> like pens, paper, and folders. 
+                    Sometimes you have to help organize <strong>(5) ______</strong> in our local warehouse and work with <strong>(6) ______</strong> 
+                    from other countries. Join our team and grow with us!
+                </p>
+
+                <div class="cloze-options">
+                    <div class="cloze-item">
+                        <strong>1.</strong>
+                        <label><input type="radio" name="r2_1" value="a"> a) sellers</label>
+                        <label><input type="radio" name="r2_1" value="b"> b) colleagues</label>
+                        <label><input type="radio" name="r2_1" value="c"> c) buyers</label>
+                    </div>
+
+                    <div class="cloze-item">
+                        <strong>2.</strong>
+                        <label><input type="radio" name="r2_2" value="a"> a) meetings</label>
+                        <label><input type="radio" name="r2_2" value="b"> b) exports</label>
+                        <label><input type="radio" name="r2_2" value="c"> c) warehouses</label>
+                    </div>
+
+                    <div class="cloze-item">
+                        <strong>3.</strong>
+                        <label><input type="radio" name="r2_3" value="a"> a) exports</label>
+                        <label><input type="radio" name="r2_3" value="b"> b) invoices</label>
+                        <label><input type="radio" name="r2_3" value="c"> c) calls</label>
+                    </div>
+
+                    <div class="cloze-item">
+                        <strong>4.</strong>
+                        <label><input type="radio" name="r2_4" value="a"> a) suppliers</label>
+                        <label><input type="radio" name="r2_4" value="b"> b) supplies</label>
+                        <label><input type="radio" name="r2_4" value="c"> c) meetings</label>
+                    </div>
+
+                    <div class="cloze-item">
+                        <strong>5.</strong>
+                        <label><input type="radio" name="r2_5" value="a"> a) calls</label>
+                        <label><input type="radio" name="r2_5" value="b"> b) goods</label>
+                        <label><input type="radio" name="r2_5" value="c"> c) colleagues</label>
+                    </div>
+
+                    <div class="cloze-item">
+                        <strong>6.</strong>
+                        <label><input type="radio" name="r2_6" value="a"> a) supplies</label>
+                        <label><input type="radio" name="r2_6" value="b"> b) warehouses</label>
+                        <label><input type="radio" name="r2_6" value="c"> c) clients</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WRITING SECTION -->
+        <div class="section">
+            <div class="section-title">✍️ WRITING PART (12 puntos)</div>
+
+            <div class="instructions">
+                <h4>📝 INSTRUCCIONES:</h4>
+                <p>Observa el siguiente organigrama. Úsalo para dar información sobre todas las personas que trabajan en la compañía. Usa un mínimo de 40 palabras.</p>
+            </div>
+
+            <div class="tips">
+                <h4>💡 CONSEJOS:</h4>
+                <ul>
+                    <li>Debes escribir sobre TODAS las personas del organigrama</li>
+                    <li>Incluye la siguiente información: nombres, edades, nacionalidades y ocupaciones</li>
+                    <li>Puedes usar oraciones como: "X is...", "He/She is... years old", "He/She is from..."</li>
+                    <li>Recuerda usar mayúsculas para nombres propios y nacionalidades</li>
+                    <li>Cuenta tus palabras para asegurarte de escribir al menos 40</li>
+                </ul>
+            </div>
+
+            <div class="tips" style="background-color: #f8d7da; border-left-color: #dc3545;">
+                <h4>📐 ESTRUCTURA SUGERIDA PARA TU RESPUESTA:</h4>
+                <p>Para cada persona, puedes seguir este patrón:</p>
+                <p><strong>[Name] is the [occupation].</strong> He/She is [age] years old. He/She is [nationality]. / He/She is from [country].</p>
+                <p style="margin-top: 10px;"><strong>Ejemplo:</strong></p>
+                <p style="font-style: italic;">"Rachel Green is the CEO. She is 48 years old. She is Canadian. / She is from Canada."</p>
+                <p style="margin-top: 10px;">Luego continúa con las demás personas del organigrama.</p>
+            </div>
+
+            <p><strong>Debes considerar los siguientes aspectos:</strong></p>
+            <ul style="margin-left: 40px; margin-bottom: 20px;">
+                <li>Names</li>
+                <li>Ages</li>
+                <li>Nationalities</li>
+                <li>Occupations</li>
+            </ul>
+
+            <div class="org-chart">
+                <h4>Organizational Chart<br>TRP Medical Company</h4>
+                
+                <div class="org-level">
+                    <div class="org-person">
+                        <strong>Rachel Green</strong>
+                        CEO<br>
+                        Age 48, Canada
+                    </div>
+                </div>
+
+                <div class="org-level">
+                    <div class="org-person">
+                        <strong>Thomas Berg</strong>
+                        Personnel Manager<br>
+                        Age 39, Sweden
+                    </div>
+                    <div class="org-person">
+                        <strong>Patricia Ruiz</strong>
+                        Marketing Manager<br>
+                        Age 33, Mexico
+                    </div>
+                    <div class="org-person">
+                        <strong>Henrik Larsson</strong>
+                        Sales Representative<br>
+                        Age 44, Norway
+                    </div>
+                </div>
+
+                <div class="org-level">
+                    <div class="org-person">
+                        <strong>Sophie Müller</strong>
+                        Administrative Assistant<br>
+                        Age 26, Austria
+                    </div>
+                </div>
+            </div>
+
+            <div class="writing-area">
+                <textarea id="writingText" placeholder="Escribe tu respuesta aquí..."></textarea>
+                <div class="word-counter" id="wordCounter">Palabras: 0 (Mínimo: 40)</div>
+            </div>
+
+            <div class="tips" style="background-color: #fff3cd; border-left-color: #ffc107; margin-top: 20px;">
+                <h4>📧 PASO 1: ENVIAR AL PROFESOR</h4>
+                <p><strong>Antes de calcular tu nota, debes enviar tu Writing al profesor para que lo revise.</strong></p>
+                <p>Haz clic en el botón de abajo para enviar tu texto por email. Tu profesor te dará los puntajes según la rúbrica oficial.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="sendEmailToTeacher()" style="background-color: #007bff; color: white; padding: 15px 30px; font-size: 1.1em; border: none; border-radius: 5px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                    📧 Enviar Writing al Profesor
+                </button>
+                <p style="margin-top: 10px; color: #666; font-size: 0.9em;">Se abrirá tu cliente de email con el Writing listo para enviar</p>
+            </div>
+
+            <div class="rubric">
+                <h4>📊 CRITERIOS DE EVALUACIÓN (para referencia del estudiante):</h4>
+                <ul>
+                    <li><strong>Coherencia y Extensión:</strong> ¿Incluiste información de TODAS las personas? (4 pts)</li>
+                    <li><strong>Vocabulario:</strong> ¿Usaste vocabulario del curso correctamente? (3 pts)</li>
+                    <li><strong>Gramática:</strong> ¿Usaste correctamente el verbo "to be" y las estructuras? (3 pts)</li>
+                    <li><strong>Ortografía:</strong> ¿Escribiste las palabras correctamente? (2 pts)</li>
+                </ul>
+            </div>
+
+            <!-- RUBRIC SECTION -->
+            <div class="part-title" style="margin-top: 40px;">📊 PASO 2: INGRESAR PUNTAJES DEL PROFESOR</div>
+            
+            <div class="tips" style="background-color: #d1ecf1; border-left-color: #17a2b8;">
+                <h4>💡 INSTRUCCIONES:</h4>
+                <p><strong>Después de que tu profesor revise tu Writing y te dé los puntajes, ingrésalos aquí seleccionando el nivel correspondiente en cada criterio.</strong></p>
+                <p>El sistema calculará automáticamente tu puntaje de Writing y tu nota final.</p>
+            </div>
+
+            <div class="rubric-evaluation">
+                <!-- Criterion 1: Coherencia y Extensión -->
+                <div class="criterion">
+                    <h4>1. Coherencia y Extensión (4 puntos)</h4>
+                    <div class="criterion-options">
+                        <label>
+                            <input type="radio" name="crit1" value="4">
+                            <strong>4 pts - Totalmente Logrado:</strong> 40+ palabras. Desarrolla al menos 5 ideas completas y coherentes.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit1" value="3.2">
+                            <strong>3.2 pts - Logrado:</strong> 30-39 palabras. Desarrolla al menos 4 ideas completas y coherentes.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit1" value="2.4">
+                            <strong>2.4 pts - Parcialmente Logrado:</strong> 20-29 palabras. Desarrolla al menos 3 ideas completas y coherentes.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit1" value="1.2">
+                            <strong>1.2 pts - Insuficientemente Logrado:</strong> 10-19 palabras. Desarrolla 2 ideas completas y coherentes.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit1" value="0">
+                            <strong>0 pts - No Logrado:</strong> Menos de 10 palabras o sin respuesta.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Criterion 2: Vocabulario -->
+                <div class="criterion">
+                    <h4>2. Vocabulario (3 puntos)</h4>
+                    <div class="criterion-options">
+                        <label>
+                            <input type="radio" name="crit2" value="3">
+                            <strong>3 pts - Totalmente Logrado:</strong> Al menos 8 palabras del vocabulario estudiado, en contextos adecuados.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit2" value="2.4">
+                            <strong>2.4 pts - Logrado:</strong> 6-7 palabras del vocabulario estudiado, en contextos adecuados.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit2" value="1.8">
+                            <strong>1.8 pts - Parcialmente Logrado:</strong> 5 palabras del vocabulario estudiado, en contextos adecuados.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit2" value="0.9">
+                            <strong>0.9 pts - Insuficientemente Logrado:</strong> 3-4 palabras del vocabulario estudiado, en contextos adecuados.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit2" value="0">
+                            <strong>0 pts - No Logrado:</strong> Menos de 3 palabras o vocabulario inadecuado.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Criterion 3: Gramática -->
+                <div class="criterion">
+                    <h4>3. Gramática (3 puntos)</h4>
+                    <div class="criterion-options">
+                        <label>
+                            <input type="radio" name="crit3" value="3">
+                            <strong>3 pts - Totalmente Logrado:</strong> Sin errores gramaticales.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit3" value="2.4">
+                            <strong>2.4 pts - Logrado:</strong> 2-3 errores gramaticales que no afectan la comprensión.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit3" value="1.8">
+                            <strong>1.8 pts - Parcialmente Logrado:</strong> 4-5 errores, pero el texto sigue siendo comprensible.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit3" value="0.9">
+                            <strong>0.9 pts - Insuficientemente Logrado:</strong> Hasta 6 errores que limitan la claridad del mensaje.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit3" value="0">
+                            <strong>0 pts - No Logrado:</strong> 7 o más errores que impiden la comprensión.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Criterion 4: Ortografía -->
+                <div class="criterion">
+                    <h4>4. Ortografía (2 puntos)</h4>
+                    <div class="criterion-options">
+                        <label>
+                            <input type="radio" name="crit4" value="2">
+                            <strong>2 pts - Totalmente Logrado:</strong> 1-2 errores de ortografía que no afectan el mensaje.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit4" value="1.6">
+                            <strong>1.6 pts - Logrado:</strong> 3-4 errores de ortografía que no afectan el mensaje general.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit4" value="1.2">
+                            <strong>1.2 pts - Parcialmente Logrado:</strong> 5-6 errores que afectan parcialmente el mensaje.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit4" value="0.6">
+                            <strong>0.6 pts - Insuficientemente Logrado:</strong> 7-9 errores que afectan la idea principal.
+                        </label>
+                        <label>
+                            <input type="radio" name="crit4" value="0">
+                            <strong>0 pts - No Logrado:</strong> Más de 10 errores que afectan la comprensión.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="writing-score-display">
+                    <strong>Puntaje Writing: <span id="writingScore">0</span> / 12 puntos</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRADE CALCULATOR SECTION -->
+        <div class="section" style="background-color: #e8f4f8; padding: 30px; border-radius: 10px;">
+            <div class="section-title" style="background-color: #17a2b8;">🎯 CALCULADORA DE NOTA FINAL</div>
+
+            <div class="tips" style="background-color: #fff3cd; border-left-color: #ffc107;">
+                <h4>📋 INSTRUCCIONES FINALES:</h4>
+                <ul>
+                    <li><strong>1.</strong> Asegúrate de haber ingresado los puntajes que tu profesor te dio en la rúbrica de arriba</li>
+                    <li><strong>2.</strong> Haz clic en el botón "Calcular Mi Nota Final"</li>
+                    <li><strong>3.</strong> El sistema calculará automáticamente tu nota considerando Listening + Reading + Writing</li>
+                </ul>
+            </div>
+
+            <button class="collapsible" style="background-color: #17a2b8; margin-top: 20px;" onclick="calculateGrade()">🧮 Calcular Mi Nota Final</button>
+            
+            <div class="grade-results" id="gradeResults" style="display: none; margin-top: 20px;">
+                <div style="background-color: white; padding: 25px; border-radius: 10px; border: 3px solid #28a745;">
+                    <h3 style="text-align: center; color: #28a745; margin-bottom: 20px;">📊 Resultados del Mock Test</h3>
+                    
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="background-color: #f8f9fa;">
+                            <th style="padding: 12px; text-align: left; border: 1px solid #dee2e6;">Sección</th>
+                            <th style="padding: 12px; text-align: center; border: 1px solid #dee2e6;">Puntaje Obtenido</th>
+                            <th style="padding: 12px; text-align: center; border: 1px solid #dee2e6;">Puntaje Máximo</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #dee2e6;"><strong>Listening</strong></td>
+                            <td style="padding: 12px; text-align: center; border: 1px solid #dee2e6;" id="listeningPoints">-</td>
+                            <td style="padding: 12px; text-align: center; border: 1px solid #dee2e6;">12</td>
+                        </tr>
+                        <tr style="background-color: #f8f9fa;">
+                            <td style="padding: 12px; border: 1px solid #dee2e6;"><strong>Reading</strong></td>
+                            <td style="padding: 12px; text-align: center; border: 1px solid #dee2e6;" id="readingPoints">-</td>
+                            <td style="padding: 12px; text-align: center; border: 1px solid #dee2e6;">12</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #dee2e6;"><strong>Writing</strong></td>
+                            <td style="padding: 12px; text-align: center; border: 1px solid #dee2e6;" id="writingPoints">-</td>
+                            <td style="padding: 12px; text-align: center; border: 1px solid #dee2e6;">12</td>
+                        </tr>
+                        <tr style="background-color: #d4edda; font-weight: bold; font-size: 1.1em;">
+                            <td style="padding: 12px; border: 1px solid #dee2e6;"><strong>TOTAL</strong></td>
+                            <td style="padding: 12px; text-align: center; border: 1px solid #dee2e6;" id="totalPoints">-</td>
+                            <td style="padding: 12px; text-align: center; border: 1px solid #dee2e6;">36</td>
+                        </tr>
+                    </table>
+
+                    <div style="margin-top: 25px; padding: 20px; background-color: #d4edda; border-radius: 8px; text-align: center;">
+                        <h2 style="color: #155724; margin-bottom: 10px;">NOTA FINAL</h2>
+                        <div style="font-size: 3em; font-weight: bold; color: #155724;" id="finalGrade">-</div>
+                        <p style="margin-top: 10px; color: #155724;" id="gradeMessage"></p>
+                    </div>
+
+                    <!-- DETAILED FEEDBACK SECTION -->
+                    <div style="margin-top: 30px;">
+                        <h3 style="color: #003da5; margin-bottom: 15px;">📝 Revisión Detallada de tus Respuestas</h3>
+                        
+                        <!-- Listening Part 1 Feedback -->
+                        <div class="feedback-section">
+                            <h4 style="background-color: #0051c3; color: white; padding: 10px; border-radius: 5px;">🎧 Listening Part 1</h4>
+                            <div id="listeningPart1Feedback" style="padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-top: 10px;"></div>
+                        </div>
+
+                        <!-- Listening Part 2 Feedback -->
+                        <div class="feedback-section" style="margin-top: 20px;">
+                            <h4 style="background-color: #0051c3; color: white; padding: 10px; border-radius: 5px;">🎧 Listening Part 2</h4>
+                            <div id="listeningPart2Feedback" style="padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-top: 10px;"></div>
+                        </div>
+
+                        <!-- Reading Part 1 Feedback -->
+                        <div class="feedback-section" style="margin-top: 20px;">
+                            <h4 style="background-color: #0051c3; color: white; padding: 10px; border-radius: 5px;">📖 Reading Part 1</h4>
+                            <div id="readingPart1Feedback" style="padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-top: 10px;"></div>
+                        </div>
+
+                        <!-- Reading Part 2 Feedback -->
+                        <div class="feedback-section" style="margin-top: 20px;">
+                            <h4 style="background-color: #0051c3; color: white; padding: 10px; border-radius: 5px;">📖 Reading Part 2</h4>
+                            <div id="readingPart2Feedback" style="padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-top: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="background-color: #d4edda; border-left-color: #28a745;">
+            <h3>🎉 ¡Excelente trabajo!</h3>
+            <p>Has completado el mock test.</p>
+            <p><strong>Próximos pasos:</strong></p>
+            <ul>
+                <li>Envía tu Writing al profesor usando el botón de la sección Writing</li>
+                <li>Espera la revisión de tu profesor e ingresa los puntajes en la rúbrica</li>
+                <li>Calcula tu nota final para ver tu resultado y una revisión detallada</li>
+                <li>Revisa las áreas donde tuviste errores y practica más</li>
+                <li>Vuelve a intentar el mock test en unos días para medir tu progreso</li>
+                <li>Consulta con tu profesor si tienes dudas sobre alguna pregunta</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Collapsible functionality
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                // Only toggle if it's not the calculate button
+                if (!this.hasAttribute('onclick')) {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                }
+            });
+        }
+
+        // Word counter for writing section
+        var writingText = document.getElementById('writingText');
+        var wordCounter = document.getElementById('wordCounter');
+
+        writingText.addEventListener('input', function() {
+            var text = this.value.trim();
+            var wordCount = 0;
+            
+            if (text.length > 0) {
+                wordCount = text.split(/\s+/).length;
+            }
+            
+            wordCounter.textContent = 'Palabras: ' + wordCount + ' (Mínimo: 40)';
+            
+            if (wordCount < 40) {
+                wordCounter.className = 'word-counter warning';
+            } else {
+                wordCounter.className = 'word-counter success';
+            }
+        });
+
+        // Rubric scoring - update writing score as user selects criteria
+        const criteriaRadios = document.querySelectorAll('.criterion-options input[type="radio"]');
+        criteriaRadios.forEach(radio => {
+            radio.addEventListener('change', updateWritingScore);
+        });
+
+        function updateWritingScore() {
+            let total = 0;
+            for (let i = 1; i <= 4; i++) {
+                const selected = document.querySelector(`input[name="crit${i}"]:checked`);
+                if (selected) {
+                    total += parseFloat(selected.value);
+                }
+            }
+            document.getElementById('writingScore').textContent = total.toFixed(1);
+        }
+
+        // Correct answers
+        const correctAnswers = {
+            listening: {
+                part2: {
+                    'l2_1': 'a',
+                    'l2_2': 'b',
+                    'l2_3': 'a',
+                    'l2_4': 'c'
+                }
+            },
+            reading: {
+                part1: {
+                    'r1_1': 'b',
+                    'r1_2': 'b',
+                    'r1_3': 'c',
+                    'r1_4': 'a',
+                    'r1_5': 'd',
+                    'r1_6': 'c'
+                },
+                part2: {
+                    'r2_1': 'b',
+                    'r2_2': 'a',
+                    'r2_3': 'c',
+                    'r2_4': 'b',
+                    'r2_5': 'b',
+                    'r2_6': 'c'
+                }
+            }
+        };
+
+        function calculateGrade() {
+            const studentName = document.getElementById('studentName').value.trim();
+            
+            if (!studentName) {
+                alert('Por favor, ingresa tu nombre al inicio de la página antes de calcular tu nota.');
+                document.getElementById('studentName').focus();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            // Check if rubric is filled
+            let rubricFilled = true;
+            for (let i = 1; i <= 4; i++) {
+                const selected = document.querySelector(`input[name="crit${i}"]:checked`);
+                if (!selected) {
+                    rubricFilled = false;
+                    break;
+                }
+            }
+
+            if (!rubricFilled) {
+                alert('Por favor, ingresa los puntajes que tu profesor te dio en los 4 criterios de la rúbrica antes de calcular tu nota.');
+                return;
+            }
+
+            // Helper function to normalize answers (remove spaces, dashes, convert to lowercase)
+            function normalizeAnswer(answer) {
+                return answer.trim().toLowerCase().replace(/[\s\-]/g, '');
+            }
+
+            // Calculate Listening Part 1 (manual - 8 points)
+            let listeningPart1 = 0;
+            const l1Answers = ['Robert', 'Williams', '555-8976', 'accountant', 'Maxwell', 'EVE 5-7-9', 'information', 'tablet'];
+            const l1Labels = ['First name', 'Last name', 'Phone number', 'Job', 'Company name', 'Registration code', 'Desk type', 'Object needed'];
+            let l1Feedback = '';
+            
+            for (let i = 1; i <= 8; i++) {
+                const studentAnswer = document.getElementById(`l1_${i}`).value.trim();
+                const studentNormalized = normalizeAnswer(studentAnswer);
+                const correctAnswer = l1Answers[i-1];
+                const correctNormalized = normalizeAnswer(correctAnswer);
+                
+                const isCorrect = studentNormalized === correctNormalized;
+                if (isCorrect) {
+                    listeningPart1 += 1;
+                }
+
+                l1Feedback += `<div class="feedback-item ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}">`;
+                l1Feedback += `<strong>${i}. ${l1Labels[i-1]}:</strong>`;
+                if (isCorrect) {
+                    l1Feedback += `<span class="correct-answer">✓ Correcto: ${correctAnswer}</span>`;
+                } else {
+                    l1Feedback += `<span class="student-answer">Tu respuesta: "${studentAnswer || '(vacío)'}"</span><br>`;
+                    l1Feedback += `<span class="correct-answer">Respuesta correcta: ${correctAnswer}</span>`;
+                }
+                l1Feedback += `</div>`;
+            }
+            document.getElementById('listeningPart1Feedback').innerHTML = l1Feedback;
+
+            // Calculate Listening Part 2 (4 points)
+            let listeningPart2 = 0;
+            const l2Questions = [
+                'When are the marketing review meetings?',
+                'What time is the client presentation?',
+                'Where is the client presentation?',
+                "What is Ms. Rodriguez's nationality?"
+            ];
+            const l2CorrectText = [
+                'a) On Monday and Thursday',
+                'b) 2:15',
+                'a) In conference room 208',
+                'c) Spanish'
+            ];
+            let l2Feedback = '';
+
+            let qNum = 0;
+            for (let key in correctAnswers.listening.part2) {
+                const selected = document.querySelector(`input[name="${key}"]:checked`);
+                const studentAnswer = selected ? selected.value : null;
+                const correctAnswer = correctAnswers.listening.part2[key];
+                const isCorrect = studentAnswer === correctAnswer;
+                
+                if (isCorrect) {
+                    listeningPart2 += 1;
+                }
+
+                l2Feedback += `<div class="feedback-item ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}">`;
+                l2Feedback += `<strong>${qNum + 1}. ${l2Questions[qNum]}</strong><br>`;
+                if (isCorrect) {
+                    l2Feedback += `<span class="correct-answer">✓ Correcto: ${l2CorrectText[qNum]}</span>`;
+                } else {
+                    if (studentAnswer) {
+                        const studentLabel = document.querySelector(`input[name="${key}"][value="${studentAnswer}"]`).parentElement.textContent.trim();
+                        l2Feedback += `<span class="student-answer">Tu respuesta: ${studentLabel}</span><br>`;
+                    } else {
+                        l2Feedback += `<span class="student-answer">No respondiste</span><br>`;
+                    }
+                    l2Feedback += `<span class="correct-answer">Respuesta correcta: ${l2CorrectText[qNum]}</span>`;
+                }
+                l2Feedback += `</div>`;
+                qNum++;
+            }
+            document.getElementById('listeningPart2Feedback').innerHTML = l2Feedback;
+
+            const listeningTotal = listeningPart1 + listeningPart2;
+
+            // Calculate Reading Part 1 (6 points)
+            let readingPart1 = 0;
+            const r1Questions = [
+                "What is Monica's address?",
+                "What are the supplies?",
+                "How much are they?",
+                "What's the number of the invoice?",
+                "What's the name of the company?",
+                "What's Helen's last name?"
+            ];
+            const r1CorrectText = [
+                'b) 582, Wilson Avenue',
+                'b) Pharmacy supplies',
+                'c) $64.27',
+                'a) seven-four-two',
+                'd) TRP Medical',
+                'c) Foster'
+            ];
+            let r1Feedback = '';
+            
+            qNum = 0;
+            for (let key in correctAnswers.reading.part1) {
+                const selected = document.querySelector(`input[name="${key}"]:checked`);
+                const studentAnswer = selected ? selected.value : null;
+                const correctAnswer = correctAnswers.reading.part1[key];
+                const isCorrect = studentAnswer === correctAnswer;
+                
+                if (isCorrect) {
+                    readingPart1 += 1;
+                }
+
+                r1Feedback += `<div class="feedback-item ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}">`;
+                r1Feedback += `<strong>${qNum + 1}. ${r1Questions[qNum]}</strong><br>`;
+                if (isCorrect) {
+                    r1Feedback += `<span class="correct-answer">✓ Correcto: ${r1CorrectText[qNum]}</span>`;
+                } else {
+                    if (studentAnswer) {
+                        const studentLabel = document.querySelector(`input[name="${key}"][value="${studentAnswer}"]`).parentElement.textContent.trim();
+                        r1Feedback += `<span class="student-answer">Tu respuesta: ${studentLabel}</span><br>`;
+                    } else {
+                        r1Feedback += `<span class="student-answer">No respondiste</span><br>`;
+                    }
+                    r1Feedback += `<span class="correct-answer">Respuesta correcta: ${r1CorrectText[qNum]}</span>`;
+                }
+                r1Feedback += `</div>`;
+                qNum++;
+            }
+            document.getElementById('readingPart1Feedback').innerHTML = r1Feedback;
+
+            // Calculate Reading Part 2 (6 points)
+            let readingPart2 = 0;
+            const r2Questions = [
+                'Administrative Assistant needs to help (1) ______',
+                'Prepare documents, organize (2) ______',
+                'Answer phone (3) ______',
+                'Manage the office (4) ______',
+                'Help organize (5) ______',
+                'Work with (6) ______'
+            ];
+            const r2CorrectText = [
+                'b) colleagues',
+                'a) meetings',
+                'c) calls',
+                'b) supplies',
+                'b) goods',
+                'c) clients'
+            ];
+            let r2Feedback = '';
+            
+            qNum = 0;
+            for (let key in correctAnswers.reading.part2) {
+                const selected = document.querySelector(`input[name="${key}"]:checked`);
+                const studentAnswer = selected ? selected.value : null;
+                const correctAnswer = correctAnswers.reading.part2[key];
+                const isCorrect = studentAnswer === correctAnswer;
+                
+                if (isCorrect) {
+                    readingPart2 += 1;
+                }
+
+                r2Feedback += `<div class="feedback-item ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}">`;
+                r2Feedback += `<strong>${qNum + 1}. ${r2Questions[qNum]}</strong><br>`;
+                if (isCorrect) {
+                    r2Feedback += `<span class="correct-answer">✓ Correcto: ${r2CorrectText[qNum]}</span>`;
+                } else {
+                    if (studentAnswer) {
+                        const studentLabel = document.querySelector(`input[name="${key}"][value="${studentAnswer}"]`).parentElement.textContent.trim();
+                        r2Feedback += `<span class="student-answer">Tu respuesta: ${studentLabel}</span><br>`;
+                    } else {
+                        r2Feedback += `<span class="student-answer">No respondiste</span><br>`;
+                    }
+                    r2Feedback += `<span class="correct-answer">Respuesta correcta: ${r2CorrectText[qNum]}</span>`;
+                }
+                r2Feedback += `</div>`;
+                qNum++;
+            }
+            document.getElementById('readingPart2Feedback').innerHTML = r2Feedback;
+
+            const readingTotal = readingPart1 + readingPart2;
+
+            // Get Writing score from rubric
+            const writingTotal = parseFloat(document.getElementById('writingScore').textContent) || 0;
+
+            // Calculate total
+            const totalPoints = listeningTotal + readingTotal + writingTotal;
+
+            // Calculate final grade (Chilean scale: 60% = 4.0)
+            // Formula: grade = 1.0 + (points / 36) * 6.0 * (100/60) simplified
+            // Or: grade = 1.0 + (points/21.6) * 6.0
+            let finalGrade;
+            const percentage = (totalPoints / 36) * 100;
+            
+            if (percentage < 60) {
+                // Below 60%: scale from 1.0 to 3.9
+                finalGrade = 1.0 + (percentage / 60) * 2.9;
+            } else {
+                // 60% and above: scale from 4.0 to 7.0
+                finalGrade = 4.0 + ((percentage - 60) / 40) * 3.0;
+            }
+
+            finalGrade = Math.round(finalGrade * 10) / 10; // Round to 1 decimal
+
+            // Display results
+            document.getElementById('listeningPoints').textContent = listeningTotal.toFixed(1);
+            document.getElementById('readingPoints').textContent = readingTotal.toFixed(1);
+            document.getElementById('writingPoints').textContent = writingTotal.toFixed(1);
+            document.getElementById('totalPoints').textContent = totalPoints.toFixed(1);
+            document.getElementById('finalGrade').textContent = finalGrade.toFixed(1);
+
+            // Grade message
+            let message = '';
+            if (finalGrade >= 6.0) {
+                message = '¡Excelente trabajo! 🌟';
+            } else if (finalGrade >= 5.0) {
+                message = '¡Muy bien! 👏';
+            } else if (finalGrade >= 4.0) {
+                message = '¡Aprobado! 👍';
+            } else {
+                message = 'Sigue practicando 💪';
+            }
+            document.getElementById('gradeMessage').textContent = message;
+
+            // Show results
+            document.getElementById('gradeResults').style.display = 'block';
+
+            // Scroll to results
+            document.getElementById('gradeResults').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function sendEmailToTeacher() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const writingText = document.getElementById('writingText').value.trim();
+            
+            if (!studentName) {
+                alert('Por favor, ingresa tu nombre al inicio de la página antes de enviar el email.');
+                document.getElementById('studentName').focus();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            if (!writingText) {
+                alert('Por favor, escribe tu texto en la sección Writing antes de enviar.');
+                document.getElementById('writingText').focus();
+                return;
+            }
+
+            // Get word count
+            const wordCount = writingText.split(/\s+/).length;
+
+            // Compose email
+            const subject = `Mock Test Writing - ${studentName}`;
+            const body = `Estimado Profesor,\n\nLe envío mi Writing del Mock Test para revisión.\n\nNOMBRE: ${studentName}\n\nCANTIDAD DE PALABRAS: ${wordCount}\n\n--- WRITING ---\n\n${writingText}\n\n\nSaludos cordiales,\n${studentName}`;
+
+            const mailtoLink = `mailto:v.moralesm@profesor.duoc.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Se abrirá tu cliente de email. Asegúrate de enviarlo.\n\nDespués de que tu profesor revise tu Writing y te dé los puntajes, ingrésalos en la rúbrica más abajo para calcular tu nota final.');
+        }
+
+        // Audio play counter functionality
+        let audio1PlayCount = 0;
+        let audio2PlayCount = 0;
+        let audio1WasPlaying = false;
+        let audio2WasPlaying = false;
+
+        const audio1 = document.getElementById('audio1');
+        const audio2 = document.getElementById('audio2');
+
+        // Audio 1 counter - only count when starting from beginning or near beginning
+        audio1.addEventListener('play', function() {
+            // Only count as a new play if starting from beginning (first 2 seconds)
+            if (audio1.currentTime < 2 || !audio1WasPlaying) {
+                audio1PlayCount++;
+                document.getElementById('audio1Count').textContent = audio1PlayCount;
+                
+                if (audio1PlayCount > 2) {
+                    document.getElementById('audio1Warning').style.display = 'inline';
+                }
+            }
+            audio1WasPlaying = true;
+        });
+
+        audio1.addEventListener('pause', function() {
+            audio1WasPlaying = false;
+        });
+
+        audio1.addEventListener('ended', function() {
+            audio1WasPlaying = false;
+        });
+
+        // Reset counter when seeking back to start
+        audio1.addEventListener('seeked', function() {
+            if (audio1.currentTime < 2) {
+                audio1WasPlaying = false;
+            }
+        });
+
+        // Audio 2 counter - only count when starting from beginning or near beginning
+        audio2.addEventListener('play', function() {
+            // Only count as a new play if starting from beginning (first 2 seconds)
+            if (audio2.currentTime < 2 || !audio2WasPlaying) {
+                audio2PlayCount++;
+                document.getElementById('audio2Count').textContent = audio2PlayCount;
+                
+                if (audio2PlayCount > 2) {
+                    document.getElementById('audio2Warning').style.display = 'inline';
+                }
+            }
+            audio2WasPlaying = true;
+        });
+
+        audio2.addEventListener('pause', function() {
+            audio2WasPlaying = false;
+        });
+
+        audio2.addEventListener('ended', function() {
+            audio2WasPlaying = false;
+        });
+
+        // Reset counter when seeking back to start
+        audio2.addEventListener('seeked', function() {
+            if (audio2.currentTime < 2) {
+                audio2WasPlaying = false;
+            }
+        });
+    </script>
+</body>
+</html>
