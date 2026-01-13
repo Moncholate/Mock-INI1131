@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
         }
 
@@ -24,19 +24,19 @@
             margin: 0 auto;
             background-color: white;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
 
         .header {
             text-align: center;
-            border-bottom: 3px solid #003da5;
+            border-bottom: 3px solid #667eea;
             padding-bottom: 20px;
             margin-bottom: 30px;
         }
 
         .header h1 {
-            color: #003da5;
+            color: #667eea;
             font-size: 2em;
             margin-bottom: 10px;
         }
@@ -47,15 +47,15 @@
         }
 
         .info-box {
-            background-color: #e8f4f8;
-            border-left: 4px solid #003da5;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
             padding: 15px;
             margin-bottom: 30px;
             border-radius: 5px;
         }
 
         .info-box h3 {
-            color: #003da5;
+            color: #667eea;
             margin-bottom: 10px;
         }
 
@@ -68,7 +68,7 @@
         }
 
         .section-title {
-            background-color: #003da5;
+            background-color: #667eea;
             color: white;
             padding: 15px;
             border-radius: 5px;
@@ -77,7 +77,7 @@
         }
 
         .part-title {
-            background-color: #0051c3;
+            background: #764ba2;
             color: white;
             padding: 12px;
             border-radius: 5px;
@@ -139,7 +139,7 @@
 
         .form-box h4 {
             text-align: center;
-            color: #003da5;
+            color: #667eea;
             margin-bottom: 20px;
             text-decoration: underline;
         }
@@ -214,7 +214,7 @@
 
         .cloze-text h4 {
             text-align: center;
-            color: #003da5;
+            color: #667eea;
             margin-bottom: 15px;
         }
 
@@ -238,7 +238,7 @@
         }
 
         .org-chart h4 {
-            color: #003da5;
+            color: #667eea;
             margin-bottom: 20px;
         }
 
@@ -259,7 +259,7 @@
 
         .org-person strong {
             display: block;
-            color: #003da5;
+            color: #667eea;
             font-size: 1.1em;
             margin-bottom: 5px;
         }
@@ -382,11 +382,11 @@
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 20px;
-            border-left: 4px solid #003da5;
+            border-left: 4px solid #667eea;
         }
 
         .criterion h4 {
-            color: #003da5;
+            color: #667eea;
             margin-bottom: 15px;
         }
 
@@ -408,8 +408,8 @@
         }
 
         .criterion-options label:hover {
-            border-color: #003da5;
-            background-color: #e8f4f8;
+            border-color: #667eea;
+            background: #f8f9fa;
         }
 
         .criterion-options input[type="radio"] {
@@ -425,7 +425,7 @@
 
         .criterion-options label div strong {
             display: block;
-            color: #003da5;
+            color: #667eea;
             margin-bottom: 5px;
         }
 
@@ -555,6 +555,64 @@
                 padding: 8px 4px !important;
             }
         }
+    
+        .question-text label {
+            transition: all 0.3s ease;
+        }
+        
+        .question-text label:hover {
+            background: #e3f2fd !important;
+            transform: scale(1.05);
+        }
+        
+        .question-text input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+        
+        .question-text label:has(input[type="radio"]:checked) {
+            background: #c5e1a5 !important;
+            border: 2px solid #4caf50;
+            font-weight: bold;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .grade-results {
+            animation: fadeIn 0.5s;
+        }
+        
+        .submit-button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.3em;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin: 30px 0;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .submit-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+        }
+
     </style>
 </head>
 <body>
@@ -612,7 +670,7 @@
                     Tu navegador no soporta el elemento de audio.
                 </audio>
                 <div style="margin-top: 10px;">
-                    <span style="font-weight: bold; color: #003da5;">Reproducciones: <span id="audio1Count">0</span> / 2</span>
+                    <span style="font-weight: bold; color: #667eea;">Reproducciones: <span id="audio1Count">0</span> / 2</span>
                     <span id="audio1Warning" style="display: none; color: #dc3545; font-weight: bold; margin-left: 15px;">⚠️ Has excedido el límite de reproducciones del examen real</span>
                 </div>
             </div>
@@ -670,7 +728,7 @@
                     Tu navegador no soporta el elemento de audio.
                 </audio>
                 <div style="margin-top: 10px;">
-                    <span style="font-weight: bold; color: #003da5;">Reproducciones: <span id="audio2Count">0</span> / 2</span>
+                    <span style="font-weight: bold; color: #667eea;">Reproducciones: <span id="audio2Count">0</span> / 2</span>
                     <span id="audio2Warning" style="display: none; color: #dc3545; font-weight: bold; margin-left: 15px;">⚠️ Has excedido el límite de reproducciones del examen real</span>
                 </div>
             </div>
@@ -1173,24 +1231,15 @@
                 </div>
             </div>
         </div>
-
-        <!-- GRADE CALCULATOR SECTION -->
-        <div class="section" style="background-color: #e8f4f8; padding: 30px; border-radius: 10px;">
-            <div class="section-title" style="background-color: #17a2b8;">🎯 CALCULADORA DE NOTA FINAL</div>
-
-            <div class="tips" style="background-color: #fff3cd; border-left-color: #ffc107;">
-                <h4>📋 INSTRUCCIONES FINALES:</h4>
-                <ul>
-                    <li><strong>1.</strong> Asegúrate de haber ingresado los puntajes que tu profesor te dio en la rúbrica de arriba</li>
-                    <li><strong>2.</strong> Haz clic en el botón "Calcular Mi Nota Final"</li>
-                    <li><strong>3.</strong> El sistema calculará automáticamente tu nota considerando Listening + Reading + Writing</li>
-                </ul>
-            </div>
-
-            <button class="collapsible" style="background-color: #17a2b8; margin-top: 20px;" onclick="calculateGrade()">🧮 Calcular Mi Nota Final</button>
-            
-            <div class="grade-results" id="gradeResults" style="display: none; margin-top: 20px;">
-                <div style="background-color: white; padding: 25px; border-radius: 10px; border: 3px solid #28a745;">
+        
+        <!-- SUBMIT BUTTON -->
+        <button class="submit-button" onclick="calculateGrade()">
+            🎯 Calcular Mi Nota Final
+        </button>
+        
+        <!-- RESULTS SECTION -->
+        <div class="grade-results" id="gradeResults" style="display: none; margin-top: 20px;">
+                <div style="background-color: white; padding: 25px; border-radius: 15px; border: 3px solid #28a745;">
                     <h3 style="text-align: center; color: #28a745; margin-bottom: 20px;">📊 Resultados del Mock Test</h3>
                     
                     <table style="width: 100%; border-collapse: collapse;">
@@ -1229,48 +1278,34 @@
 
                     <!-- DETAILED FEEDBACK SECTION -->
                     <div style="margin-top: 30px;">
-                        <h3 style="color: #003da5; margin-bottom: 15px;">📝 Revisión Detallada de tus Respuestas</h3>
+                        <h3 style="color: #667eea; margin-bottom: 15px;">📝 Revisión Detallada de tus Respuestas</h3>
                         
                         <!-- Listening Part 1 Feedback -->
                         <div class="feedback-section">
-                            <h4 style="background-color: #0051c3; color: white; padding: 10px; border-radius: 5px;">🎧 Listening Part 1</h4>
+                            <h4 style="background: #764ba2; color: white; padding: 10px; border-radius: 5px;">🎧 Listening Part 1</h4>
                             <div id="listeningPart1Feedback" style="padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-top: 10px;"></div>
                         </div>
 
                         <!-- Listening Part 2 Feedback -->
                         <div class="feedback-section" style="margin-top: 20px;">
-                            <h4 style="background-color: #0051c3; color: white; padding: 10px; border-radius: 5px;">🎧 Listening Part 2</h4>
+                            <h4 style="background: #764ba2; color: white; padding: 10px; border-radius: 5px;">🎧 Listening Part 2</h4>
                             <div id="listeningPart2Feedback" style="padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-top: 10px;"></div>
                         </div>
 
                         <!-- Reading Part 1 Feedback -->
                         <div class="feedback-section" style="margin-top: 20px;">
-                            <h4 style="background-color: #0051c3; color: white; padding: 10px; border-radius: 5px;">📖 Reading Part 1</h4>
+                            <h4 style="background: #764ba2; color: white; padding: 10px; border-radius: 5px;">📖 Reading Part 1</h4>
                             <div id="readingPart1Feedback" style="padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-top: 10px;"></div>
                         </div>
 
                         <!-- Reading Part 2 Feedback -->
                         <div class="feedback-section" style="margin-top: 20px;">
-                            <h4 style="background-color: #0051c3; color: white; padding: 10px; border-radius: 5px;">📖 Reading Part 2</h4>
+                            <h4 style="background: #764ba2; color: white; padding: 10px; border-radius: 5px;">📖 Reading Part 2</h4>
                             <div id="readingPart2Feedback" style="padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-top: 10px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="info-box" style="background-color: #d4edda; border-left-color: #28a745;">
-            <h3>🎉 ¡Excelente trabajo!</h3>
-            <p>Has completado el mock test.</p>
-            <p><strong>Próximos pasos:</strong></p>
-            <ul>
-                <li>Envía tu Writing al profesor usando el botón de la sección Writing</li>
-                <li>Espera la revisión de tu profesor e ingresa los puntajes en la rúbrica</li>
-                <li>Calcula tu nota final para ver tu resultado y una revisión detallada</li>
-                <li>Revisa las áreas donde tuviste errores y practica más</li>
-                <li>Vuelve a intentar el mock test en unos días para medir tu progreso</li>
-                <li>Consulta con tu profesor si tienes dudas sobre alguna pregunta</li>
-            </ul>
         </div>
     </div>
 
